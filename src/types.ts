@@ -1,10 +1,4 @@
-export interface ISearch<T>{
-currentPage?: number;
-  hasNextPage?: boolean;
-  totalPages?: number;
-  totalResults?: number;
-  results: T[]; 
-}
+
 export interface ITitle {
     romaji?: string;
     english?: string;
@@ -23,4 +17,20 @@ export interface IAnimeResult {
     rating?: number;
     type?: String;
     releaseDate?: string;
+  }
+  export interface IAnimeInfo extends IAnimeResult {
+    episodes: IEpisode[],
+    totalEpisodes: number,
+    description:string,
+    genres: string[],
+  }
+  export interface IEpisode{
+    id:string,
+    title?:string,
+    number: number,
+    description?:string,
+    url?:string,
+    image?:string,
+    imageHash?:string,
+    releaseDate?:string,
   }
