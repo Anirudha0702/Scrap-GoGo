@@ -66,6 +66,11 @@ export default async (req: Request, res: Response): Promise<Response> => {
       data: info,
     });
   } catch (error: any) {
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ 
+        success: false, 
+        statusCode: 500, 
+        error: error.message||"Internal Server Error", 
+        data: null
+     });
   }
 };
