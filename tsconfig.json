@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2017",
     "module": "commonjs",
-    "rootDir": "src",
+    // "rootDir": "src",
     "moduleResolution": "node",
     "declaration": true,
     "sourceMap": true,
@@ -13,6 +13,8 @@
     "skipLibCheck": true
   },
   "lib": ["esnext"],
-  "include": ["src/**/*.ts"],
+  "include": [
+    "./api/*.ts",
+    "src/**/*.ts"],
   "exclude": ["node_modules"]
 }

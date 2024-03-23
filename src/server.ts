@@ -5,7 +5,7 @@ import Episode from './controllers/Episode';
 import Info from './controllers/Info';
 import cors from 'cors';
 dotenv.config();
-const app = express();
+const app: express.Express = express();
 const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors<Request>());
@@ -25,3 +25,4 @@ app.get('/', async (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+export default app;
