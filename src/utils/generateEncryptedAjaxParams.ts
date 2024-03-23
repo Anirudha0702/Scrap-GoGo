@@ -7,7 +7,6 @@ export default async ($: any, id: string, keys: IKey): Promise<string> => {
   const scriptValue = $("script[data-name='episode']").attr(
     "data-value"
   ) as string;
-  console.log(scriptValue);
   const decryptedToken = CryptoJS.AES.decrypt(scriptValue, keys.key, {
     iv: keys.iv,
   }).toString(CryptoJS.enc.Utf8);
