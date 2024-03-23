@@ -34,3 +34,16 @@ export interface IAnimeResult {
     imageHash?:string,
     releaseDate?:string,
   }
+  export interface IVideo {
+    url: string;
+    quality?: string;
+    isM3U8?: boolean;
+    isDASH?: boolean;
+    size?: number;
+    [x: string]: unknown; 
+  }
+  export interface IKey {
+    key:CryptoJS.lib.WordArray;
+    secondKey: CryptoJS.lib.WordArray;
+    iv: CryptoJS.lib.WordArray;
+  }
