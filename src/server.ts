@@ -8,7 +8,13 @@ dotenv.config();
 const app: express.Express = express();
 const port = process.env.PORT || 3000;
 app.use(express.json());
-app.use(cors<Request>());
+const allowedOrigins = ['http://localhost:3000','https://scrap-go-go.vercel.app/'];
+
+const options: cors.CorsOptions = {
+  origin: allowedOrigins
+};
+
+app.use(cors(options));
 
 app.get("/anime/search", Search);
 app.get("/anime/info/:id", Info);
