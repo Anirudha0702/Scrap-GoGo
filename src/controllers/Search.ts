@@ -35,9 +35,9 @@ export default async (req: Request, res: Response): Promise<Response> => {
 
     });
   } catch (error:any  ) {
-      return res.status(500).json({
+      return res.status(error.code||500).json({
         success: false,
-        statusCode:500,
+        statusCode:error.code||500,
         error:error,
         data:null
       })
