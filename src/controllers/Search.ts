@@ -38,7 +38,7 @@ export default async (req: Request, res: Response): Promise<Response> => {
       return res.status(500).json({
         success: false,
         statusCode:500,
-        error:error.message,
+        error:error,
         data:null
       })
     }

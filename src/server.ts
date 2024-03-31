@@ -21,7 +21,7 @@ app.get("/anime/info/:id", Info);
 app.get("/anime/watch/:ep_id", Episode);
 app.get('/', async (req: Request, res: Response) => {
   res.json({ 
-    Search: '/anime/search/[keyword]',
+    Search: '/anime/search?keyword=[keyword]&page=[page]',
     Info: '/anime/info/[id]',
     Episode: '/anime/watch/[ep_id]'
  });
