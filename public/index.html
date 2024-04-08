@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Scrap G0-G0 is a web scraping tool that allows you to scrape data from gogoAnime"
+    />
+    <meta
+      name="keywords"
+      content="Scrap G0-G0, gogoAnime, web scraping, scraping tool"
+    />
+    <link rel="shortcut icon" href="./logo.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-dark.min.css"
+    />
+    <title>Scrap G0-G0</title>
+    <script
+      src="https://kit.fontawesome.com/7bbc05e361.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo-wrapper">
+        <img src="./logo.png" alt="" class="logo" />
+      </div>
+      <span class="logo-text">Sƈɾαρ Gσ-Gσ</span>
+      <div class="nav-links">
+        <a href="https://github.com/Anirudha0702" class="nav-link">
+          <i class="fa-brands fa-github fa-2xl icon"></i>
+        </a>
+        <a href="https://twitter.com/Anirudh68131423" class="nav-link">
+          <i class="fa-brands fa-x-twitter fa-2xl icon"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/anirudha-pradhan-346388240/" class="nav-link">
+          <i class="fa-brands fa-linkedin-in fa-2xl icon"></i>
+        </a>
+        <a href="https://www.instagram.com/robin_e_fied_930/" class="nav-link">
+            <i class="fa-brands fa-instagram fa-2xl icon"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <div class="docs-wrapper">
+        <div id="search">
+          <h1 class="search-header">Search</h1>
+          <span class="search-descp">
+            Technical details regarding the usage of the search route for Scrap
+            Go-Go can be found below. Example code is provided for JavaScript.
+          </span>
+          <div id="search-route" class="section">
+            <h1 class="search-url">Route Schema (URL)</h1>
+            <span class="url">
+              https://scrap-go-go.vercel.app/anime/search?keyword={keyword}&page={page}
+            </span>
+          </div>
+          <div id="search-query" class="section">
+            <h1 class="search-url">Query Parameters</h1>
+            <div class="table-wrapper">
+              <table class="table">
+                <tr>
+                  <th>Parameter</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Required?</th>
+                  <th>Default</th>
+                </tr>
+                <tr>
+                  <td>keyword</td>
+                  <td>string</td>
+                  <td>
+                    The keyword; i.e. the title of the item you are looking for.
+                  </td>
+                  <td>Yes</td>
+                  <td>None</td>
+                </tr>
+                <tr>
+                  <td>page</td>
+                  <td>integer</td>
+                  <td>The page number of results to return.</td>
+                  <td>No</td>
+                  <td>1</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div id="search-request" class="section">
+            <h1 class="search-url">Request Samples</h1>
+            <span class="search-descp">
+              <pre>
+                <code>
+import axios from &quot;axios&quot;;
+// Using the example keyword &quot;demon&quot;, and looking at the 1st page of results.
+const url = &quot;https://scrap-go-go.vercel.app/anime/search?keyword=demon&page=1&quot;;
+const data = async () =&gt; {
+    try {
+        const { data } = await axios.get(url);
+        return data;
+    } catch (err) {
+        throw new Error(err.message);
+        }
+    };
+console.log(data);
+
+                </code>
+              </pre>
+            </span>
+          </div>
+          <div id="search-response" class="section">
+            <h1 class="search-url">Response Schema</h1>
+            <span class="search-descp">
+              <pre>
+                <code>
+{
+    &quot;success&quot;: boolean,
+    &quot;statusCode&quot;: string,
+    &quot;error&quot;: string|null,
+    &quot;data&quot;:`[
+        {
+            &quot;id&quot;: string,
+            &quot;title&quot;: string | ITitle,
+            &quot;image&quot;: string,
+        }
+    ] |null`
+}
+                </code>
+              </pre>
+            </span>
+          </div>
+        </div>
+
+        <div id="info">
+          <h1 class="search-header">Info</h1>
+          <span class="search-descp">
+            Technical details regarding the usage of the Info route for Scrap
+            Go-Go can be found below. Example code is provided for JavaScript.
+          </span>
+          <div id="info-route" class="section">
+            <h1 class="search-url">Route Schema (URL)</h1>
+            <span class="url">
+              https://scrap-go-go.vercel.app/anime//info/:id
+            </span>
+          </div>
+          <div id="info-param" class="section">
+            <h1 class="search-url">Path Parameters</h1>
+            <div class="table-wrapper">
+              <table class="table">
+                <tr>
+                  <th>Parameter</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Required?</th>
+                  <th>Default</th>
+                </tr>
+                <tr>
+                  <td>id</td>
+                  <td>string</td>
+                  <td>The id; i.e. the id of the anime you are looking for.</td>
+                  <td>Yes</td>
+                  <td>None</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div id="info-request" class="section">
+            <h1 class="search-url">Request Samples</h1>
+            <span class="search-descp">
+              <pre>
+                  <code>
+  import axios from &quot;axios&quot;;
+  // Using the example id &quot;jujutsu-kaisen-tv-2nd-season&quot;.
+  const url = &quot;https://scrap-go-go.vercel.app/anime/info/jujutsu-kaisen-tv-2nd-season&quot;;
+  const data = async () =&gt; {
+      try {
+          const { data } = await axios.get(url);
+          return data;
+      } catch (err) {
+          throw new Error(err.message);
+          }
+      };
+  console.log(data);
+  
+                  </code>
+                </pre>
+            </span>
+          </div>
+          <div id="info-response" class="section">
+            <h1 class="search-url">Response Schema</h1>
+            <span class="search-descp">
+              <pre>
+                  <code>
+  {
+      &quot;success&quot;: boolean,
+      &quot;statusCode&quot;: string,
+      &quot;error&quot;: string|null,
+      &quot;data&quot;:`{
+            &quot;id&quot;: string,
+            &quot;title&quot;: string | ITitle,
+            &quot;url&quot;: string,
+            &quot;image&quot;: string,
+            &quot;releaseDate&quot;: string,
+            &quot;episodes&quot;: [
+                {
+                    &quot;id&quot;: string,
+                    &quot;number&quot;: number,
+                    &quot;url&quot;: string
+                }
+            ],
+            &quot;totalEpisodes&quot;: number,
+            &quot;description&quot;: string,
+            &quot;genre&quot;: string[],
+
+
+    } |null`
+  }
+                  </code>
+                </pre>
+            </span>
+          </div>
+        </div>
+
+        <div id="Episode">
+          <h1 class="search-header">Episode</h1>
+          <span class="search-descp">
+            Technical details regarding the usage of the Episode route for Scrap
+            Go-Go can be found below. Example code is provided for JavaScript.
+          </span>
+          <div id="ep-route" class="section">
+            <h1 class="search-url">Route Schema (URL)</h1>
+            <span class="url">
+              https://scrap-go-go.vercel.app/anime/watch/:Episode_id
+            </span>
+          </div>
+          <div id="ep-path-param" class="section">
+            <h1 class="search-url">Path Parameters</h1>
+            <div class="table-wrapper">
+              <table class="table">
+                <tr>
+                  <th>Parameter</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Required?</th>
+                  <th>Default</th>
+                </tr>
+                <tr>
+                  <td>Episode_id</td>
+                  <td>string</td>
+                  <td>
+                    The Episode_id; i.e. the id of the episode you are looking
+                    for.
+                  </td>
+                  <td>Yes</td>
+                  <td>None</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div id="ep-request" class="section">
+            <h1 class="search-url">Request Samples</h1>
+            <span class="search-descp">
+              <pre>
+                  <code>
+  import axios from &quot;axios&quot;;
+  // Using the example Episode_id &quot;one-piece-episode-1&quot;.
+  const url = &quot;https://scrap-go-go.vercel.app/anime/watch/one-piece-episode-1&quot;;
+  const data = async () =&gt; {
+      try {
+          const { data } = await axios.get(url);
+          return data;
+      } catch (err) {
+          throw new Error(err.message);
+          }
+      };
+  console.log(data);
+  
+                  </code>
+                </pre>
+            </span>
+          </div>
+          <div id="ep-response" class="section">
+            <h1 class="search-url">Response Schema</h1>
+            <span class="search-descp">
+              <pre>
+                  <code>
+  {
+      &quot;success&quot;: boolean,
+      &quot;statusCode&quot;: string,
+      &quot;error&quot;: string|null,
+      &quot;data&quot;:`[
+        {
+            &quot;url&quot;: string,
+            &quot;isM3U8&quot;: boolean,
+            &quot;quality&quot;: string,
+        } 
+    ]|null`
+  }
+                  </code>
+                </pre>
+            </span>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="doc-nav">
+        <div class="doc-nav-item">
+          <ul>
+            <li>
+              <a href="#search"><h3>Search</h3></a>
+              <ul>
+                <a href="#search-route"><li>Route Schema</li></a>
+                <a href="#search-query"><li>Query Parameters</li></a>
+                <a href="#search-request"><li>Request Samples</li></a>
+                <a href="#search-response"><li>Response Schema</li></a>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="doc-nav-item">
+          <ul>
+            <li>
+              <a href="#info"><h3>Info</h3></a>
+              <ul>
+                <a href="#info-route"><li>Route Schema</li></a>
+                <a href="#info-param"><li>Path Parameters</li></a>
+                <a href="#info-request"><li>Request Samples</li></a>
+                <a href="#info-response"><li>Response Schema</li></a>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="doc-nav-item">
+          <ul>
+            <li>
+              <a href="#Episode"><h3>Episodes</h3></a>
+              <ul>
+                <a href="#ep-route"><li>Route Schema</li></a>
+                <a href="#ep-path-param"><li>Path Parameters</li></a>
+                <a href="#ep-request"><li>Request Samples</li></a>
+                <a href="#ep-response"><li>Response Schema</li></a>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+        //Show active link
+    </script>
+  </body>
+</html>

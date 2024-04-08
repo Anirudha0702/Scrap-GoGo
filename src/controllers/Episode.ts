@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import * as cheerio from "cheerio";
 import VideoExtract from "../utils/VideoExtract";
 import { error } from "console";
@@ -17,7 +17,7 @@ export default async(req: Request, res: Response): Promise<Response> => {
         return res.status(500).json({
             success: false,
             statusCode: 500,
-            error: error.message,
+            error: error instanceof AxiosError?"Gogo Anime is down or may have changed is domain":error.message || "Internal Server Error",
             data: null
         })
     }
