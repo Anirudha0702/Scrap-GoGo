@@ -1,7 +1,5 @@
 import setRateLimit from "express-rate-limit";
-
 import { Request, Response } from "express";
-import { data } from "cheerio/lib/api/attributes";
 const maxRequest=15;
 const exceedHandler = (req:Request, res:Response) => {
     res.status(429).json({

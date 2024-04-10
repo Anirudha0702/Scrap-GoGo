@@ -88,7 +88,7 @@ h1{
 .docs-wrapper::-webkit-scrollbar {
     display: none;
 }
-#search ,#info,#Episode{
+#intro,#search ,#info,#Episode{
     width: 100%;
     padding: 1rem;
     border: none;
@@ -133,16 +133,6 @@ h1{
     padding: 0.5rem;
 }
 
-.footer{
-    width: 100svw;
-    position: absolute;
-    bottom: 0;
-    padding: 1rem;
-    z-index: 100;
-    height: 6rem;
-    background-color: yellow;
-    overflow: hidden;
-}
 
 
 
