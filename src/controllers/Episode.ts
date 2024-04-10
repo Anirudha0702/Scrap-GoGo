@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
-import axios, { AxiosError } from "axios";
-import * as cheerio from "cheerio";
+import  { AxiosError } from "axios";
 import VideoExtract from "../utils/VideoExtract";
-import { error } from "console";
 export default async(req: Request, res: Response): Promise<Response> => {
     try {
         const res_= await VideoExtract(new URL(`${process.env.BASE_URL}/${req.params.ep_id}`));

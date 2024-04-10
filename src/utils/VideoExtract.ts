@@ -28,7 +28,6 @@ export default async function (videoUrl: URL): Promise<IVideo[]> {
       },
     }
   );
-    console.log(encryptedData.data.data)
   const decryptedData = await decryptAjaxData(encryptedData.data.data, keys);
   if (!decryptedData.source)
     throw new Error("No source found. Try a different server.");
