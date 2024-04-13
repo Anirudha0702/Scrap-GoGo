@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import  { AxiosError } from "axios";
 import VideoExtract from "../utils/VideoExtract";
-export default async(req: Request, res: Response): Promise<Response> => {
+export default async(req: Request, res: Response) => {
     try {
         const res_= await VideoExtract(new URL(`${process.env.BASE_URL}/${req.params.ep_id}`));
         return res.status(200).json({

@@ -7,7 +7,7 @@ import rateLimit from './middlewares/rateLimit';
 import cors from 'cors';
 import path from 'path';
 dotenv.config();
-const app: express.Express = express();
+const app: express.Application = express();
 const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

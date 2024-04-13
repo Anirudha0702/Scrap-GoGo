@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import axios ,{AxiosError}from "axios";
 import {  IAnimeResult } from "../types";
 import * as cheerio from "cheerio";
-export default async (req: Request, res: Response): Promise<Response> => {
+export default async (req: Request, res: Response)=> {
   const { keyword, page } = req.query;
   if(!keyword ) return res.status(400).json(
     {

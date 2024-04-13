@@ -2,7 +2,7 @@ import axios ,{AxiosError}from "axios";
 import { Request, Response } from "express";
 import * as cheerio from "cheerio";
 import { IEpisode, IAnimeInfo } from "../types";
-export default async (req: Request, res: Response): Promise<Response> => {
+export default async (req: Request, res: Response) => {
   const { id } = req.params;
   const baseURL = process.env.BASE_URL;
   const url = `${baseURL}/category/${id}`;
