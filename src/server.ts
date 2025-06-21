@@ -1,25 +1,25 @@
-import express, { Request, Response } from 'express';
-import dotenv from 'dotenv';
-import Search from './controllers/Search';
-import Episode from './controllers/Episode';
-import Info from './controllers/Info';
-import rateLimit from './middlewares/rateLimit';
-import cors from 'cors';
-import path from 'path';
+import express, { Request, Response } from "express";
+import dotenv from "dotenv";
+import Search from "./controllers/Search";
+import Episode from "./controllers/Episode";
+import Info from "./controllers/Info";
+import rateLimit from "./middlewares/rateLimit";
+import cors from "cors";
+import path from "path";
 dotenv.config();
 const app: express.Application = express();
 const port = process.env.PORT || 3000;
+app.set("trust proxy", true);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/",express.static(path.join(__dirname, '../public')));
+app.use("/", express.static(path.join(__dirname, "../public")));
 const options: cors.CorsOptions = {
-  methods: 'GET',
+  methods: "GET",
 };
 app.use(cors());
-app.get("/anime/search", rateLimit,Search);
-app.get("/anime/info/:id",rateLimit, Info);
-app.get("/anime/watch/:ep_id",rateLimit, Episode);
-
+app.get("/anime/search", rateLimit, Search);
+app.get("/anime/info/:id", rateLimit, Info);
+app.get("/anime/watch/:ep_id", rateLimit, Episode);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
